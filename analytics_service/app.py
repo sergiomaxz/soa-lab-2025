@@ -1,6 +1,8 @@
 import pika, json, time
 
-time.sleep(15) 
+print("Waiting for RabbitMQ to start...")
+time.sleep(15)
+
 connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq'))
 channel = connection.channel()
 channel.queue_declare(queue='ride_finished_queue')
